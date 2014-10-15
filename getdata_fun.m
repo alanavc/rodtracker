@@ -1,6 +1,8 @@
-function getdata_fun(outputfile,pars)
+function getdata_fun(outputfile,pars0)
 
 load(outputfile); 
+
+if nargin==2, pars=pars0; end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 folder=pars.folderGFP;
