@@ -42,6 +42,7 @@ the two daughter cells (or twice in the same cell if it did not divide).
 ### FORMAT OF CSV FILE:
 
 This file will have the lineage trajectories in the following tree format
+
 |-----|------|--------|---------|-------|--------|-------| 
 |cell1|      |        |         |       |        |       | 
 |cell1|      |        |         |       |        |       |        
@@ -54,3 +55,4 @@ This file will have the lineage trajectories in the following tree format
 |     |      |cell111 | cell112 |cell12 |        |       |
 |     |      |cell111 | cell112 |       |cell121 |cell122| 
 |     |      |cell111 | cell112 |       |cell121 |cell122| 
+
