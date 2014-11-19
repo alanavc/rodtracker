@@ -43,6 +43,7 @@ the two daughter cells (or twice in the same cell if it did not divide).
 
 This file will have the lineage trajectories in the following tree format
 
+|   * * |        |         |         |        |         |         | 
 | ----- | ------ | ------- | ------- | ------ | ------- | ------- | 
 | cell1 |        |         |         |        |         |         | 
 | cell1 |        |         |         |        |         |         |        
