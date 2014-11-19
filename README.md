@@ -1,9 +1,13 @@
-Tools to track rod-shaped cells 
-Input: Files with segmented cells
-Output: csv file with lineage trajectory
+RODTRACKER - Tools to track rod-shaped cells 
+====
+
+### Input: Files with segmented cells
+
+### Output: csv file with lineage trajectory
 
 
-COLOR CODING:
+### COLOR CODING:
+
 yellow=cell that apparently appeared or dissapeared (in current or next frame)
 cyan=cell in current frame with more than 1 candidate in the next frame
 blue=cell in current frame with exactly 1 candidate in the next frame
@@ -11,8 +15,7 @@ magenta=cell in next frame with more than 1 candidate in the current frame
 red=cell in next frame with exactly 1 candidate in the current frame
 
 
-INSTRUCTIONS:
-
+### INSTRUCTIONS:
 
 1. Set up the correct parameter values
 
@@ -36,17 +39,17 @@ the two daughter cells (or twice in the same cell if it did not divide).
 8. Run getdata_csvfile_fun to save data in csv format
 
 
-FORMAT OF CSV FILE:
+### FORMAT OF CSV FILE:
 
 This file will have the lineage trajectories in the following tree format
-cell1
-cell1
-cell1
-     cell11                 cell12
-     cell11                 cell12
-     cell11                 cell12
-     cell11                 cell12
-           cell111 cell112  cell12
-           cell111 cell112  cell12
-           cell111 cell112        cell121 cell122
-           cell111 cell112        cell121 cell122
+|cell1|      |        |         |       |        |       | 
+|cell1|      |        |         |       |        |       |        
+|cell1|      |        |         |       |        |       |
+|     |cell11|        |         |cell12 |        |       |
+|     |cell11|        |         |cell12 |        |       |
+|     |cell11|        |         |cell12 |        |       |
+|     |cell11|        |         |cell12 |        |       |
+|     |      |cell111 | cell112 |cell12 |        |       |
+|     |      |cell111 | cell112 |cell12 |        |       |
+|     |      |cell111 | cell112 |       |cell121 |cell122| 
+|     |      |cell111 | cell112 |       |cell121 |cell122| 
