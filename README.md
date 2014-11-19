@@ -43,18 +43,18 @@ the two daughter cells (or twice in the same cell if it did not divide).
 
 This file will have the lineage trajectories in the following tree format
 
-|-----|------|--------|---------|-------|--------|-------| 
-|cell1|      |        |         |       |        |       | 
-|cell1|      |        |         |       |        |       |        
-|cell1|      |        |         |       |        |       |
-|     |cell11|        |         |cell12 |        |       |
-|     |cell11|        |         |cell12 |        |       |
-|     |cell11|        |         |cell12 |        |       |
-|     |cell11|        |         |cell12 |        |       |
-|     |      |cell111 | cell112 |cell12 |        |       |
-|     |      |cell111 | cell112 |cell12 |        |       |
-|     |      |cell111 | cell112 |       |cell121 |cell122| 
-|     |      |cell111 | cell112 |       |cell121 |cell122| 
+| ----- | ------ | ------- | ------- | ------ | ------- | ------- | 
+| cell1 |        |         |         |        |         |         | 
+| cell1 |        |         |         |        |         |         |        
+| cell1 |        |         |         |        |         |         |
+|       | cell11 |         |         | cell12 |         |         |
+|       | cell11 |         |         | cell12 |         |         |
+|       | cell11 |         |         | cell12 |         |         |
+|       | cell11 |         |         | cell12 |         |         |
+|       |        | cell111 | cell112 | cell12 |         |         |
+|       |        | cell111 | cell112 | cell12 |         |         |
+|       |        | cell111 | cell112 |        | cell121 | cell122 | 
+|       |        | cell111 | cell112 |        | cell121 | cell122 | 
 
 
 | Tables        | Are           | Cool  |
