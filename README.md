@@ -43,7 +43,7 @@ the two daughter cells (or twice in the same cell if it did not divide).
 
 This file will have the lineage trajectories in the following tree format
 
-|   * * |        |         |         |        |         |         | 
+|       |        |         |         |        |         |         | 
 | ----- | ------ | ------- | ------- | ------ | ------- | ------- | 
 | cell1 |        |         |         |        |         |         | 
 | cell1 |        |         |         |        |         |         |        
@@ -57,10 +57,4 @@ This file will have the lineage trajectories in the following tree format
 |       |        | cell111 | cell112 |        | cell121 | cell122 | 
 |       |        | cell111 | cell112 |        | cell121 | cell122 | 
 
-
-| Tables        | Are           | Cool  |
-| ------------- |:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
 
