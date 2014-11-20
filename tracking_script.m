@@ -1,6 +1,6 @@
 %% set up parameters for creating cells
 % folder where segmented files are: e.g. '~/home/data/folder'
-pars.folder='~/GIT_STUFF/rodtracker/images_example';
+pars.folder='images_example';
 % name of files: e.g. if file is 'datainfo001c1.tif', then write 'datainfo'
 pars.filebasename='dfbwtlaciat37ct';
 % number of digits: e.g. if file is 'datainfo001c1.tif', then write 3 (because of the 001)
@@ -26,7 +26,7 @@ pars.framedist=3; %min
 % error in percentage (increase if segmentation was not good)
 pars.errorlength=.2; 
 %%folder of fluorescence data.
-pars.folderGFP='~/GIT_STUFF/rodtracker/images_example';
+pars.folderGFP='images_example';
 pars.filebasenameGFP='dfbwtlaciat37ct';
 pars.numdigitsGFP=2;
 pars.indexcharGFP='c2';
