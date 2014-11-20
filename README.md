@@ -7,6 +7,7 @@ Tools to track rod-shaped cells
 
 ### Output: csv file with lineage trajectory
 
+### Requirement: Matlab with image processing toolbox (parallel computing toolbox is optional)
 
 ### COLOR CODING:
 
