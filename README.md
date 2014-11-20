@@ -1,4 +1,6 @@
-RODTRACKER - Tools to track rod-shaped cells 
+RODTRACKER
+
+Tools to track rod-shaped cells 
 ====
 
 ### Input: Files with segmented cells
