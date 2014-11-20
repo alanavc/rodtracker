@@ -2,7 +2,6 @@
 % folder where segmented files are: e.g. '~/home/data/folder'
 pars.folder='~/GIT_STUFF/rodtracker/images_example';
 % name of files: e.g. if file is 'datainfo001c1.tif', then write 'datainfo'
-%pars.filebasename='dfbwtlaciat37ct';
 pars.filebasename='dfbwtlaciat37ct';
 % number of digits: e.g. if file is 'datainfo001c1.tif', then write 3 (because of the 001)
 pars.numdigits=2;
