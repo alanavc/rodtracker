@@ -51,34 +51,4 @@ parfor initialcell=1:NUMINITIALCELLS, disp(initialcell)
 end
 save(outputfile,'MATRIXFP','LABELS','-append'); 
 disp('fluorescence data saved')
-%% area
-parfor initialcell=1:NUMINITIALCELLS, disp(initialcell)
-    Morder=matrixorder(ALLEDGESauto,initialcell,1);cellsize=NaN(size(Morder));
-    for filenum=1:length(CELLS);
-        file_index=num2str(filenum);
-        for i=1:numdigits-length(file_index),file_index=['0' file_index];end
-        M=CELLSMATRIX{filenum};
-        numcells=size(CELLS{filenum},1);
-        for cellindex=1:numcells
-            cellsize(filenum,cellindex==Morder(filenum,:))=sum(sum(M==cellindex));
-        end
-    end
-    MATRIXAREA{initialcell}=cellsize;
-end
-save(outputfile,'MATRIXAREA','-append'); 
-
-%% length
-parfor initialcell=1:NUMINITIALCELLS, disp(initialcell)
-    Morder=matrixorder(ALLEDGESauto,initialcell,1);cellsize=NaN(size(Morder));
-    for filenum=1:length(CELLS);
-        CELLSfilenum=CELLS{filenum}; numcells=size(CELLSfilenum,1);
-        for cellindex=1:numcells
-            celli=CELLSfilenum(cellindex,:);
-            L=norm(celli(1:2)-celli(3:4))+norm(celli(end-1:end)-celli(3:4));
-            cellsize(filenum,cellindex==Morder(filenum,:))=L;
-        end
-    end
-    MATRIXLENGTH{initialcell}=cellsize;
-end
-save(outputfile,'MATRIXLENGTH','-append'); 
 
