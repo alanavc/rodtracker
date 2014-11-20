@@ -30,12 +30,12 @@ red=cell in next frame with exactly 1 candidate in the current frame
 3. Run graph_manualcorrection1_fun to do manual correction of cells (yellow cells only). 
 You can switch between the current and next frame with "right click"
 
-* To manually declare the lineage of a cell click on a cell in the "current frame"; then click on 
+    To manually declare the lineage of a cell click on a cell in the "current frame"; then click on 
 the two daughter cells (or twice in the same cell if it did not divide) in the "next frame".
 
-* After a manual correction press ENTER to save it.
+    After a manual correction press ENTER to save it.
 
-* If there are no more yellow cells in the current frame press ENTER to continue to next frame
+    If there are no more yellow cells in the current frame press ENTER to continue to next frame
 
 4. Run graph_red_fun to do trivial corrections
 
