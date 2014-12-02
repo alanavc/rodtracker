@@ -26,7 +26,7 @@ pars.framedist=3; %min
 % error in percentage (increase if segmentation was not good)
 pars.errorlength=.2; 
 %%folder of fluorescence data.
-pars.folderGFP='~/GIT_STUFF/rodtracker/images_example';
+pars.folderGFP='images_example';
 pars.filebasenameGFP='dfbwtlaciat37ct';
 pars.numdigitsGFP=2;
 pars.indexcharGFP='c2';
