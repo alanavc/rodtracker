@@ -18,7 +18,8 @@ for l=1:size(Edges,1)
 end
 %plot untracked cells from initial frame
 for i=1:numcellsI
-    pos=find(i==Edges(:,1));
+    pos=[];
+    if ~isempty(Edges), pos=find(i==Edges(:,1)); end
     if length(pos)>1
         matrixIuntracked(cellsI==i)=1; matrixItracked(cellsI==i)=0;
     end
@@ -27,7 +28,8 @@ for i=1:numcellsI
 end
 %plot untracked cells from final frame
 for j=1:numcellsF
-    pos=[find(j==Edges(:,2));find(j==Edges(:,3))];
+    pos=[];
+    if ~isempty(Edges), pos=[find(j==Edges(:,2));find(j==Edges(:,3))]; end
     if length(pos)>1
         matrixFuntracked(cellsF==j)=1; matrixFtracked(cellsF==j)=0;
     end
