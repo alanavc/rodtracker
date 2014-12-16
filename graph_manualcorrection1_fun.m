@@ -50,7 +50,9 @@ while framenum<=size(ALLEDGESmanual,2), disp(framenum)
     %%remove cells that appeared
     for i=1:numpoints
         if manualcellsI(i)==0 && manualcellsJ(i)~=0 && manualcellsJ(i)==manualcellsK(i)
-            cellj=manualcellsJ(i); pos=find(Edges(:,1)==celli); Edges(pos,:)=[];
+            cellj=manualcellsJ(i); 
+            pos=[]; if ~isempty(Edges), pos=find(Edges(:,1)==celli); end
+            Edges(pos,:)=[];
         end
     end
     %%remove bad points
@@ -64,19 +66,24 @@ while framenum<=size(ALLEDGESmanual,2), disp(framenum)
         if manualcellsJ(j)==manualcellsK(j); manualcellsK(j)=0; end
     end
     for i=1:length(manualcellsI)
-        celli=manualcellsI(i); pos=find(Edges(:,1)==celli);
+        celli=manualcellsI(i); 
+        pos=[]; if ~isempty(Edges),  pos=find(Edges(:,1)==celli); end
         Edges(pos,:)=[];
     end
     for j=1:length(manualcellsJ)
-        cellj=manualcellsJ(j); pos=[find(Edges(:,2)==cellj);find(Edges(:,3)==cellj)];
+        cellj=manualcellsJ(j); 
+        pos=[]; if ~isempty(Edges), pos=[find(Edges(:,2)==cellj);find(Edges(:,3)==cellj)]; end
         if cellj~=0, Edges(pos,:)=[]; end
     end
     for k=1:length(manualcellsK)
-        cellk=manualcellsK(k); pos=[find(Edges(:,2)==cellk);find(Edges(:,3)==cellk)];
+        cellk=manualcellsK(k); 
+        pos=[]; if ~isempty(Edges), pos=[find(Edges(:,2)==cellk);find(Edges(:,3)==cellk)]; end
         if cellk~=0, Edges(pos,:)=[]; end
     end
     Edges=[Edges;[manualcellsI' manualcellsJ' manualcellsK']];
-    pos0=find(Edges(:,1)==0); Edges(pos0,:)=[];
+    pos0=[]; if ~isempty(Edges), pos0=find(Edges(:,1)==0); end
+    Edges(pos0,:)=[];
+
     ALLEDGESmanual{framenum}=Edges; close(f1); close(f2);
     save(filename ,'ALLEDGESmanual','-append');
 end
