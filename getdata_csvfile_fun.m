@@ -1,8 +1,8 @@
 function getdata_csvfile_fun(outputfile,csvfile)
 
-load(outputfile); 
+load(outputfile,'MATRIXFP'); 
 
-load(outputfile ); ALLDATA=[];
+ALLDATA=[];
 for i=1:length(MATRIXFP)
     M=MATRIXFP{i};
     [~,n]=size(M);
