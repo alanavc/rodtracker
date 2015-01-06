@@ -11,15 +11,18 @@ Tools to track rod-shaped cells
 
 ### COLOR CODING:
 
-yellow=cell that apparently dissapeared (from current frame) or appeared (in next frame)
+blue=cell in current frame with exactly 1 candidate (or exactly 2 daughter cells) in the next frame
 
-cyan=cell in current frame with more than 1 candidate (perhaps 2 daughter cells) in the next frame
+cyan=cell in current frame with more than 1 candidate (or more than 2 daughter cells) in the next frame
 
-blue=cell in current frame with exactly 1 candidate (perhaps 2 daughter cells) in the next frame
+white=cell that apparently dissapeared from current frame
+
+
+red=cell in next frame with exactly 1 candidate in the current frame
 
 magenta=cell in next frame with more than 1 candidate in the current frame
 
-red=cell in next frame with exactly 1 candidate in the current frame
+yellow=cell that apparently appeared in next frame
 
 
 ### INSTRUCTIONS:
@@ -43,11 +46,13 @@ the two daughter cells (or twice in the same cell if it did not divide) in the "
 5. Run graph_manualcorrection2_fun to check that there are no yellow cells in any current frame. 
 Manually correct (as in step 3) if necessary.
 
-6. Run graph_optimization_fun to get the most likely movement of cells
+6. Run check_for_errors_fun to look for errors in step 5 (repeat step 5 if necessary).
 
-7. Run getdata_fun to get fluorescence data in mat file
+7. Run graph_optimization_fun to get the most likely movement of cells
 
-8. Run getdata_csvfile_fun to save data in csv format
+8. Run getdata_fun to get fluorescence data in mat file
+
+9. Run getdata_csvfile_fun to save data in csv format
 
 
 ### FORMAT OF CSV FILE:

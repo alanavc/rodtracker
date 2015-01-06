@@ -3,7 +3,9 @@ if nargin==1,framenum=1; end
 load(filename); 
 
 %Manual Correction plus reduction
-while framenum<=size(ALLEDGESmanualred,2), disp(framenum);
+while framenum<=size(ALLEDGESmanualred,2), 
+    disp(' ');
+    disp(['Working on frames ' num2str(framenum) '->' num2str(framenum+1)]);
     cellsI=CELLS{framenum}; cellsF=CELLS{framenum+1};
     numcellsI=size(cellsI,1); numcellsF=size(cellsF,1);
     matrixI=CELLSMATRIX{framenum}; matrixF=CELLSMATRIX{framenum+1};

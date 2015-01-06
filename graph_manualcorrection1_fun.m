@@ -6,8 +6,10 @@ load(filename );
 allvars=whos('-file',filename );
 if ~ismember('ALLEDGESmanual',{allvars.name}), ALLEDGESmanual=ALLEDGES; end
     
-while framenum<=size(ALLEDGESmanual,2), disp(framenum)
-     cellsI=CELLS{framenum}; cellsF=CELLS{framenum+1};
+while framenum<=size(ALLEDGESmanual,2),
+    disp(' ');
+    disp(['Working on frames ' num2str(framenum) '->' num2str(framenum+1)]);
+    cellsI=CELLS{framenum}; cellsF=CELLS{framenum+1};
     numcellsI=size(cellsI,1); numcellsF=size(cellsF,1);
     matrixI=CELLSMATRIX{framenum}; matrixF=CELLSMATRIX{framenum+1};
     Edges=ALLEDGESmanual{framenum};

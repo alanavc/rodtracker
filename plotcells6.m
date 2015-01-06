@@ -40,8 +40,8 @@ end
 matrixI1=zeros([mn 3]);
 matrixI1(:,:,1)=matrixI0tracked;
 matrixI1(:,:,2)=max(matrixIuntracked,matrixI0tracked);
-matrixI1(:,:,3)=max(matrixItracked,matrixIuntracked).*(1-matrixI0tracked);
-%matrixI1(:,:,3)=max(max(matrixItracked,matrixI0tracked),matrixIuntracked);
+%matrixI1(:,:,3)=max(matrixItracked,matrixIuntracked).*(1-matrixI0tracked);
+matrixI1(:,:,3)=max(max(matrixItracked,matrixI0tracked),matrixIuntracked);
 matrixF1=zeros([mn 3]);
 matrixF1(:,:,1)=max(max(matrixFtracked,matrixF0tracked),matrixFuntracked);
 matrixF1(:,:,2)=matrixF0tracked;

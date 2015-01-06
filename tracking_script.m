@@ -22,11 +22,11 @@ pars.maxmovediv=(pars.maxmove)/2; %in pixels; for 3 min frames
 % growth rate log(2)/doublingtime
 pars.growth=log(2)/22; 
 % time between frames
-pars.framedist=3; %min
+pars.framedist=3; %minutes
 % error in percentage (increase if segmentation was not good)
 pars.errorlength=.2; 
 %%folder of fluorescence data.
-pars.folderGFP='images_example';
+pars.folderGFP='~/GIT_STUFF/rodtracker/images_example';
 pars.filebasenameGFP='dfbwtlaciat37ct';
 pars.numdigitsGFP=2;
 pars.indexcharGFP='c2';
@@ -38,23 +38,30 @@ datafile='example.mat';
 %% put information into matlab format (automatic)
 read_data_fun(pars,datafile); 
 
-%% correct 1 (manually): fix cells that show up as yellow
+%% correct 1 (manually): fix cells that show up as white and yellow
+warning('off', 'Images:initSize:adjustingMag'); 
 graph_manualcorrection1_fun(datafile,1)
 
 %% make trivial corrections (automatic)
 graph_red_fun(datafile)
 
-%% correct 2 (manually): fix cells that show up as yellow and reduce "cyan/magenta clusters"
+%% correct 2 (manually): fix cells that show up as white and reduce "cyan/magenta clusters"
+warning('off', 'Images:initSize:adjustingMag');
 graph_manualcorrection2_fun(datafile,1)
+
+%% check for errors (automatic): if errors are detected repeat previous step
+check_for_errors_fun(datafile);
 
 %% optimize movement (automatic)
 graph_optimization_fun(datafile,1)
 
 %% get data (automatic)
 getdata_fun(datafile)
+
 %% save data as csv file (automatic)
 csvfile='example.csv';
 getdata_csvfile_fun(datafile,csvfile)
+
 %% plot lineage
 M=csvread(csvfile);plot(M)
 
