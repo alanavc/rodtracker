@@ -1,10 +1,16 @@
 function getdata_fun(outputfile,pars0)
 
-load(outputfile); 
+load(outputfile,'ALLEDGESauto','pars','CELLSMATRIX','CELLS'); 
+if nargin==2
+    pars.folderGFP=pars0.folderGFP;
+    pars.filebasenameGFP=pars0.filebasenameGFP;
+    pars.numdigitsGFP=pars0.numdigitsGFP;
+    pars.indexcharGFP=pars0.indexcharGFP;
+    pars.fileextGFP=pars0.fileextGFP;
+    pars.FILENUMSGFP=pars0.FILENUMSGFP;
+end
+save(outputfile,'pars','-append'); 
 
-if nargin==2, pars=pars0; end
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 folder=pars.folderGFP;
 filebasename=pars.filebasenameGFP;
 numdigits=pars.numdigitsGFP;

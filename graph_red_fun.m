@@ -1,5 +1,8 @@
 function graph_red_fun(filename)
-load(filename); 
+disp(' ')
+disp('Reducing graph of transitions...')
+
+load(filename,'ALLEDGESmanual','CELLS','CELLSMATRIX'); 
 
 ALLEDGESmanualred=ALLEDGESmanual;
 
@@ -16,3 +19,5 @@ for ii=1:size(ALLEDGESmanualred,2), %disp(framenum)
 end
 
 save(filename ,'ALLEDGESmanualred','-append');
+
+disp('DONE!')

@@ -1,6 +1,6 @@
 function graph_manualcorrection2_fun(filename,framenum)
 if nargin==1,framenum=1; end
-load(filename); 
+load(filename,'ALLEDGESmanualred','CELLS','CELLSMATRIX'); 
 
 %Manual Correction plus reduction
 while framenum<=size(ALLEDGESmanualred,2), 
@@ -8,8 +8,30 @@ while framenum<=size(ALLEDGESmanualred,2),
     disp(['Working on frames ' num2str(framenum) '->' num2str(framenum+1)]);
     cellsI=CELLS{framenum}; cellsF=CELLS{framenum+1};
     numcellsI=size(cellsI,1); numcellsF=size(cellsF,1);
-    matrixI=CELLSMATRIX{framenum}; matrixF=CELLSMATRIX{framenum+1};
     Edges=ALLEDGESmanualred{framenum};
+    
+    cellscurrent_with_neighbors=sort(Edges(:,1));
+    cellsnext_with_neighbors=sort([ Edges(:,2); Edges(:,3)]);
+    cellsnext_with_neighbors(cellsnext_with_neighbors==0)=[];
+    
+    
+    if length(unique(cellscurrent_with_neighbors))==numcellsI && length(unique(cellsnext_with_neighbors))==numcellsF && ...
+        isequal(cellscurrent_with_neighbors',1:numcellsI) && isequal(cellsnext_with_neighbors',1:numcellsF)
+        framenum=framenum+1; continue;
+    end
+
+    if length(unique(cellscurrent_with_neighbors))~=numcellsI
+        disp('ERROR: It seems that cells were lost (white). If so, declare it manually.')
+    end
+    if length(unique(cellsnext_with_neighbors))~=numcellsF
+        disp('WARNING: It seems that new cells appeared (yellow). If so, no correction is necessary.')
+    end
+    if length(unique(cellsnext_with_neighbors))~= length(cellsnext_with_neighbors) || length(unique(cellscurrent_with_neighbors))~=length(cellscurrent_with_neighbors)
+        disp('NOTE: More than single transitions were detected (cyan/magenta). Manually track if clusters are large.')
+    end
+    
+    
+    matrixI=CELLSMATRIX{framenum}; matrixF=CELLSMATRIX{framenum+1};    
     %f=plotcells2(Edges,cellsI,cellsF);
     [f1,f2]=plotcells6(Edges,matrixI,matrixF,zeros(1,numcellsI),numcellsI,numcellsF);
     figure(f1);
@@ -84,3 +106,5 @@ end
 save(filename ,'ALLEDGESmanualred','-append');
 close all hidden;
 
+disp(' ')
+disp('DONE!')

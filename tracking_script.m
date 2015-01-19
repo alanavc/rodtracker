@@ -25,13 +25,7 @@ pars.growth=log(2)/22;
 pars.framedist=3; %minutes
 % error in percentage (increase if segmentation was not good)
 pars.errorlength=.2; 
-%%folder of fluorescence data.
-pars.folderGFP='~/GIT_STUFF/rodtracker/images_example';
-pars.filebasenameGFP='dfbwtlaciat37ct';
-pars.numdigitsGFP=2;
-pars.indexcharGFP='c2';
-pars.fileextGFP='tif';
-pars.FILENUMSGFP=pars.FILENUMS;
+
 % file where all information will be saved ( .mat extension)
 datafile='example.mat'; 
 
@@ -55,8 +49,15 @@ check_for_errors_fun(datafile);
 %% optimize movement (automatic)
 graph_optimization_fun(datafile,1)
 
+%% set up parameters for collecting data
+pars.folderGFP='images_example';
+pars.filebasenameGFP='dfbwtlaciat37ct';
+pars.numdigitsGFP=2;
+pars.indexcharGFP='c2';
+pars.fileextGFP='tif';
+pars.FILENUMSGFP=1:30;
 %% get data (automatic)
-getdata_fun(datafile)
+getdata_fun(datafile,pars)
 
 %% save data as csv file (automatic)
 csvfile='example.csv';

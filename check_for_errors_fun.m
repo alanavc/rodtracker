@@ -1,5 +1,5 @@
 function [BAD_FRAMEScurrent,BAD_FRAMESnext]=check_for_errors_fun(filename)
-load(filename);
+load(filename,'ALLEDGESmanualred','CELLS','CELLSMATRIX'); 
 
 BAD_FRAMEScurrent=[];
 BAD_FRAMESnext=[];

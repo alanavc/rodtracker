@@ -1,9 +1,11 @@
 function graph_optimization_fun(filename,framenum0)
 %framenum0=where to start
+disp(' ')
+disp('Finding the final transition graph...')
 
 if nargin==1, framenum0=1; end
 
-load(filename ); %pars=pars;
+load(filename,'ALLEDGESmanualred','CELLS','pars'); %pars=pars;
 
 %do not change values of ALLEDGESauto from 1 to framenum0-1
 for i=framenum0:size(ALLEDGESmanualred,2)
@@ -68,3 +70,5 @@ for framenum=framenum0:size(ALLEDGESauto,2),%disp(framenum)
     %
     save(filename,'ALLEDGESauto','-append');
 end
+
+disp('DONE!')

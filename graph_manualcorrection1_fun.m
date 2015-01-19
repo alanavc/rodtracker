@@ -1,18 +1,33 @@
 function graph_manualcorrection1_fun(filename,framenum)
 if nargin==1,framenum=1; end
-load(filename ); 
+load(filename,'pars','ALLEDGES','CELLS','CELLSMATRIX'); 
 
 %check if there is a file with manual editing
 allvars=whos('-file',filename );
-if ~ismember('ALLEDGESmanual',{allvars.name}), ALLEDGESmanual=ALLEDGES; end
+if ~ismember('ALLEDGESmanual',{allvars.name}), ALLEDGESmanual=ALLEDGES; 
+else ismember('ALLEDGESmanual',{allvars.name}), load(filename,'ALLEDGESmanual'); end
     
 while framenum<=size(ALLEDGESmanual,2),
     disp(' ');
     disp(['Working on frames ' num2str(framenum) '->' num2str(framenum+1)]);
     cellsI=CELLS{framenum}; cellsF=CELLS{framenum+1};
     numcellsI=size(cellsI,1); numcellsF=size(cellsF,1);
-    matrixI=CELLSMATRIX{framenum}; matrixF=CELLSMATRIX{framenum+1};
     Edges=ALLEDGESmanual{framenum};
+    
+    cellscurrent_with_neighbors=unique(Edges(:,1));
+    cellsnext_with_neighbors=unique([ Edges(:,2); Edges(:,3)]);
+    if cellsnext_with_neighbors(1)==0, cellsnext_with_neighbors(1)=[]; end
+    if length(cellscurrent_with_neighbors)==numcellsI && length(cellsnext_with_neighbors)==numcellsF
+        framenum=framenum+1; continue;
+    end
+    if length(cellscurrent_with_neighbors)<numcellsI
+        disp('ERROR: It seems that cells were lost (white). If so, declare it manually.')
+    end
+    if length(cellsnext_with_neighbors)<numcellsF
+        disp('WARNING: It seems that new cells appeared (yellow). If so, no correction is necessary.')
+    end
+    
+    matrixI=CELLSMATRIX{framenum}; matrixF=CELLSMATRIX{framenum+1};    
     %f=plotcells2(Edges,cellsI,cellsF);
     [f1,f2]=plotcells6(Edges,matrixI,matrixF,zeros(1,numcellsI),numcellsI,numcellsF);
     figure(f1);
@@ -91,3 +106,6 @@ while framenum<=size(ALLEDGESmanual,2),
 end
 save(filename ,'ALLEDGESmanual','-append');
 close all hidden;
+
+disp(' ')
+disp('DONE!')
