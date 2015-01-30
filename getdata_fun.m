@@ -29,7 +29,7 @@ expand=0; cutpole=0;
 
 parfor initialcell=1:NUMINITIALCELLS, disp(initialcell)
     Morder=matrixorder(ALLEDGESauto,initialcell,1);
-    Morder=[Morder;zeros(length(FILENUMS)-size(Morder,1),size(Morder,2))];
+    Morder=[Morder;NaN(length(FILENUMS)-size(Morder,1),size(Morder,2))];
     Mfp=NaN(size(Morder));
     Iorder=labelcells(Morder,num2str(initialcell));
     for filenum=1:length(FILENUMS)

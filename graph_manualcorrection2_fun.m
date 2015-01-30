@@ -44,6 +44,7 @@ while framenum<=size(ALLEDGESmanualred,2),
     disp('ENTER = continue');
     but=1; cellindex=1; currentfig=f1;
     manualcellsI=[]; manualcellsJ=[]; manualcellsK=[]; 
+    pause(0.1)
     while but==1, [y,x,but]=ginput(1); x=round(x); y=round(y);
         if isempty(y), break; end
         outside=0;if x<=0 || x>n || y<=0 || y>m, outside=1; end
