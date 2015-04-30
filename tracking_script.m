@@ -16,7 +16,7 @@ pars.colorbacteria=1;
 % minimal area of bacteria: in case some small areas have the same color as segmented bacteria
 pars.minarea=100;
 % maximal movement of cells (in pixels)
-pars.maxmove=40; 
+pars.maxmove=35; 
 % maximal movement of poles after septation
 pars.maxmovediv=(pars.maxmove)/2; %in pixels; for 3 min frames
 % growth rate log(2)/doublingtime

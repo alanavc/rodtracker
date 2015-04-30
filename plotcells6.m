@@ -4,9 +4,9 @@ mn=size(cellsI);
 
 if nargin==3, tracked0=zeros(1,numcellsI);end
 
-matrixItracked=zeros(mn); matrixFtracked=zeros(mn);
-matrixIuntracked=zeros(mn); matrixFuntracked=zeros(mn);
-matrixI0tracked=zeros(mn); matrixF0tracked=zeros(mn);
+matrixItracked=zeros(mn)+.1; matrixFtracked=zeros(mn)+.1;
+matrixIuntracked=zeros(mn)+.1; matrixFuntracked=zeros(mn)+.1;
+matrixI0tracked=zeros(mn)+.1; matrixF0tracked=zeros(mn)+.1;
 
 for l=1:size(Edges,1)
     i=Edges(l,1); j=Edges(l,2);k=Edges(l,3);
@@ -49,4 +49,6 @@ matrixF1(:,:,3)=matrixFuntracked.*(1-matrixF0tracked);
 %matrixF1(:,:,3)=max(matrixFuntracked,matrixF0tracked);
 
 f1=figure; imshow(matrixI1);
+set(gca,'units','normalized','position',[0 0 1 1]);
 f2=figure; imshow(matrixF1);
+set(gca,'units','normalized','position',[0 0 1 1]);
