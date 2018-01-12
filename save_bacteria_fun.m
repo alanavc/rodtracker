@@ -30,7 +30,7 @@ parfor j=1:length(FILENUMS), disp(['reading frame ' num2str(j)]);
     M=imread(filename); %imshow(M==colorofbacteria);
     for c=colorofbacteria, M(M==c)=colorofbacteria0; end
     M=(M==colorofbacteria0);
-    Mtemp=bwlabel(M); PROP = regionprops(M,'Area');
+    Mtemp=bwlabel(M,4); PROP = regionprops(M,'Area');
     ind = find([PROP.Area] >= minarea);
     M = ismember(Mtemp,ind);
     [CELLSMATRIX{j},numcells] = bwlabel(M,4);
